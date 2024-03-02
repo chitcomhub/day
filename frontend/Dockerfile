@@ -14,15 +14,9 @@ RUN npm install
 # Copy the rest of the codebase into the app directory
 COPY . .
 
-# Build the app
-RUN npm run build
-
-# Install `serve` to run the application.
-RUN npm install -g serve
-
 # Expose the port the app runs on
 EXPOSE 3000
 
 # Serve the app using Vite's preview command, which serves the production build
 # CMD ["npm", "run", "preview", "--", "--host", "--port", "3000"]
-CMD ["serve", "-s", "dist"]
+CMD ["npm", "run", "dev"]
